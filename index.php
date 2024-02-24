@@ -1,3 +1,3 @@
 <?php
-header("Location: view/poetiniView.php");
+header("Location: public");
 die;
