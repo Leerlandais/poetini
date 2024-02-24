@@ -54,14 +54,19 @@ h1 {
    align-items: center;
 }
 
-.hoursField {
+.hoursField, .addressField {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
    width: 15%;
    border: 1px solid black;
    border-radius: 20px;
-   margin: 0 auto;
+   margin: 0 auto 20px;
+}
+
+.addressField p {
+   height: 12px;
+   margin: 10px;
 }
 
 .hoursField ul {
@@ -110,6 +115,11 @@ h1 {
    background-color:  rgba(245, 245, 220, 0.4);
 }
 
+.mailSpan {
+   color: blue;
+   font-style: italic;
+}
+
 @media screen and (max-width: 600px) {
    nav ul {
       display: flex;
@@ -125,7 +135,7 @@ h1 {
 
    }
 
-   .hoursField {
+   .hoursField, .addressField {
       width: 40%;
 
    }
@@ -153,6 +163,10 @@ h1 {
    }
    .contactForm input, textarea {
       background-color:  rgba(245, 245, 220, 0.4);
+   }
+
+   .addressField p{
+      margin: 12px 0;
    }
    
 }

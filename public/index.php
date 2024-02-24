@@ -19,7 +19,7 @@ if (isset($_POST['user_nom'], $_POST['user_prenom'], $_POST['user_email'], $_POS
     // si l'insertion a réussi
     if ($insert) {
         // on redirige vers la page actuelle
-        header("Location: ./"); 
+        header("Location: ?p=contact"); 
         exit();
     } else {
         // sinon, on affiche un message d'erreur
