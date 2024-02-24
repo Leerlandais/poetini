@@ -1,5 +1,5 @@
 body {
-   background-image: url(/public/images/poe_background.jpg);
+   background-image: url(../images/poe_background.jpg);
 }
 
 .headerDiv {
@@ -79,7 +79,7 @@ h1 {
 
    .headList {
       margin: 5px 7% 0 0;
-      width: 40%;
+      width: 60%;
 
    }
 
