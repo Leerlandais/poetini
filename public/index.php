@@ -53,7 +53,7 @@ if(isset($_GET["p"])){
             break;
             default:
             $title = "Page 404";
-            include("../templates/erreur404.php");
+            include("../view/erreur404.php");
         }
     }else{
         $title = "Page d'Accueil";

@@ -32,7 +32,7 @@ nav {
 nav ul {
    display: flex;
    flex-flow: row nowrap;
-   justify-content: space-evenly;
+   justify-content: center;
    text-align: center;
    font-size: 28px;
 }
@@ -120,13 +120,93 @@ h1 {
    font-style: italic;
 }
 
+.articleHolder {
+   width: 60vw;
+   margin: 0 auto;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+}
+
+.articleWindow {
+   width: 24vw;
+   max-width: 245px;
+   height: 25vh;
+   border: 2px solid white;
+   border-radius: 20px;
+   box-shadow: lightslategray 5px 5px;
+   margin: 10px;
+   transition: transform 1s ease-in-out;
+
+}
+
+.artWindow1{
+   background-image: url(../images/waltbenjamin_nopad.jpg);
+}
+.artWindow2{
+   background-image: url(../images/vivmaier_nopad.jpg);
+}
+.artWindow3{
+   background-image: url(../images/sanlucbert_nopad.jpg);
+}
+.artWindow4{
+   background-image: url(../images/jadelindgaard_nopad.jpg);
+}
+.artWindow5{
+   background-image: url(../images/ireregnauld_nopad.jpg);
+}
+.artWindow6{
+   background-image: url(../images/fenetrexmas_nopad.jpg);
+}
+.artWindow7{
+   background-image: url(../images/emihache_nopad.jpg);
+}
+.artWindow8{
+   background-image: url(../images/dambrohon_nopad.jpg);
+}
+
+/*
+.artWindow1_text{
+   background-color: slategray;  /* REPLACE WITH TEXT */ /*
+}
+.artWindow2_text{
+   background-color: slategray;
+}
+.artWindow3_text{
+   background-color: slategray;
+}
+.artWindow4_text{
+   background-color: slategray;
+}
+.artWindow5_text{
+   background-color: slategray;
+}
+.artWindow6_text{
+   background-color: slategray;
+}
+.artWindow7_text{
+   background-color: slategray;
+}
+.artWindow8_text{
+   background-color: slategray;
+}
+*/
+.spinIt {
+   transform: rotateY(180deg);
+   background-image: none;
+   background-color: slategray;
+}
+
 @media screen and (max-width: 600px) {
+
+
    nav ul {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
       text-align: center;
       font-size: 28px;
+      justify-content: center;
    }
 
    .headList {
@@ -169,4 +249,22 @@ h1 {
       margin: 12px 0;
    }
    
+   .articleHolder {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      padding-left: 10px;
+   }
+
+   .articleWindow {
+      width: 65%;
+      height: 25vh;
+      border: 2px solid white;
+      border-radius: 20px;
+      box-shadow: lightslategray 5px 5px;
+      margin-bottom: 10px;
+   }
+
+
 }
