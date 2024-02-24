@@ -68,6 +68,48 @@ h1 {
    padding: 0;
 }
 
+.messageField, .contactField {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 15%;
+   border: 1px solid black;
+   border-radius: 20px;
+   margin: 0 auto;
+}
+
+.messageHolder h4, p {
+   text-align: center;
+}
+
+.italic {
+   font-style: italic;
+}
+
+.contactForm {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.messInp {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   margin: 2px 0;
+}
+
+.contactLabel {
+   width: 35%;
+   text-align: center;
+}
+
+.contactForm input, textarea {
+   background-color:  rgba(245, 245, 220, 0.4);
+}
+
 @media screen and (max-width: 600px) {
    nav ul {
       display: flex;
@@ -86,6 +128,31 @@ h1 {
    .hoursField {
       width: 40%;
 
+   }
+
+   .contactForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+   
+   .messInp {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+ 
+   }
+   
+   .contactLabel {
+      margin-bottom: 2px;
+      width: 50%;
+      text-align: center;
+   
+   }
+   .contactForm input, textarea {
+      background-color:  rgba(245, 245, 220, 0.4);
    }
    
 }
