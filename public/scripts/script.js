@@ -1,4 +1,11 @@
 const articleWindow = document.querySelectorAll(".articleWindow");
+const imgSubmit = document.getElementById("imgSubmit");
+
+imgSubmit.addEventListener("click", checkLink);
+
+myForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+});
 
 
 for (i=0; i<articleWindow.length; i++) {
@@ -10,3 +17,6 @@ function spinArticle () {
 
 }
 
+function checkLink () {
+    alert("good so far");
+}

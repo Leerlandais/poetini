@@ -24,7 +24,10 @@
             <div class="articleWindow artWindow7" id="articleWindow7"><img src="<?=$placeMe['image_seven']?>" alt="artImage" class="articleImage"></div>
             <div class="articleWindow artWindow8" id="articleWindow8"><img src="<?=$placeMe['image_eight']?>" alt="artImage" class="articleImage"></div>
         </div>
-
+        <?php
+              //  endforeach;  Faut que je demande à Michael pourquoi je ne peux pas endforeach ici
+                ?>  
+                     <a href="?p=imageChanger"><li>Images</li></a>
     <script src="../public/scripts/script.js"></script>
     </body>
 </html>
