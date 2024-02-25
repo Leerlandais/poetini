@@ -32,7 +32,9 @@ nav {
 nav ul {
    display: flex;
    flex-flow: row nowrap;
-   justify-content: center;
+   justify-content: space-around;
+   max-width: 80%;
+   margin: 0 auto 5vh;
    text-align: center;
    font-size: 28px;
 }
@@ -132,14 +134,21 @@ h1 {
    width: 24vw;
    max-width: 245px;
    height: 25vh;
-   border: 2px solid white;
-   border-radius: 20px;
-   box-shadow: lightslategray 5px 5px;
    margin: 10px;
    transition: transform 1s ease-in-out;
 
 }
 
+.articleImage {
+   width: 24vw;
+   max-width: 245px;
+   height: 25vh;
+   border: 2px solid white;
+   border-radius: 20px;
+   box-shadow: lightslategray 5px 5px;
+   
+}
+/*
 .artWindow1{
    background-image: url(../images/waltbenjamin_nopad.jpg);
 }
@@ -164,7 +173,7 @@ h1 {
 .artWindow8{
    background-image: url(../images/dambrohon_nopad.jpg);
 }
-
+*/
 /*
 .artWindow1_text{
    background-color: slategray;  /* REPLACE WITH TEXT */ /*
@@ -208,6 +217,7 @@ h1 {
       text-align: center;
       font-size: 28px;
       justify-content: center;
+      margin: 0 auto 4vw;
    }
 
    .headList {
@@ -259,12 +269,20 @@ h1 {
    }
 
    .articleWindow {
-      width: 65%;
+      width: 55%;
+      height: 25vh;
+      border: 2px solid white;
+      border-radius: 20px;
+      margin-bottom: 10px;
+   }
+
+   .articleImage {
+      width: 100%;
       height: 25vh;
       border: 2px solid white;
       border-radius: 20px;
       box-shadow: lightslategray 5px 5px;
-      margin-bottom: 10px;
+      
    }
 
 

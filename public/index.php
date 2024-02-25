@@ -28,6 +28,7 @@ if (isset($_POST['user_nom'], $_POST['user_prenom'], $_POST['user_email'], $_POS
 
 }
 
+$placeImages = getImages($db);
 
 if(isset($_GET["p"])){
     switch($_GET["p"]){

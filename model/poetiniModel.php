@@ -2,14 +2,14 @@
 
 function getMessages(PDO $db): array
 {
-{
+
   
     $sql = "SELECT * FROM poetini ORDER BY id ASC";
     $query = $db->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     $query->closeCursor();
     return $result; 
-}
+
 }
 
 
@@ -37,4 +37,13 @@ function addMessages(PDO $db,
 } catch (Exception $e) {
     return $e->getMessage();
 }
+}
+
+function getImages(PDO $imageDB): array
+{
+    $sql = "SELECT * from poetini_image ORDER BY id ASC";
+    $query = $imageDB->query($sql);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query->closeCursor();
+    return $result;
 }
