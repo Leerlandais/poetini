@@ -11,35 +11,37 @@ try {
 $showMessages = getMessages($db);
 
 if (isset($_POST['user_nom'], $_POST['user_prenom'], $_POST['user_email'], $_POST['user_phone'], $_POST['user_message'])) { 
-    // on appelle la fonction d'insertion dans la DB (addLivreOr())
     $insert = addMessages($db,$_POST['user_nom'], $_POST['user_prenom'], $_POST['user_email'], $_POST['user_phone'], $_POST['user_message']);
-    // si l'insertion a réussi
     if ($insert) {
-        // on redirige vers la page actuelle
         header("Location: ?p=contact"); 
         exit();
     } else {
-        // sinon, on affiche un message d'erreur
         $messageError = "Erreur avec l'insertion";
     }
 }
 
 $placeImages = getImages($db);
 
-if (isset($_POST['imgInp1'], $_POST['imgInp2'], $_POST['imgInp3'], $_POST['imgImp4'], $_POST['imgImp5'], $_POST['imgInp6'], $_POST['imgImp7'], $_POST['imgImp8'])) { 
-    // on appelle la fonction d'insertion dans la DB (addLivreOr())
-    $insert = addMessages($db,$_POST['imgInp1'], $_POST['imgInp2'], $_POST['imgInp3'], $_POST['imgImp4'], $_POST['imgImp5'], $_POST['imgInp6'], $_POST['imgImp7'], $_POST['imgImp8']);
-    // si l'insertion a réussi
+if (isset($_POST['imgInp1'], $_POST['imgInp2'], $_POST['imgInp3'], $_POST['imgInp4'], $_POST['imgInp5'], $_POST['imgInp6'], $_POST['imgInp7'], $_POST['imgInp8'])) { 
+    $imageInputs = [
+        'imgInp1' => $_POST['imgInp1'],
+        'imgInp2' => $_POST['imgInp2'],
+        'imgInp3' => $_POST['imgInp3'],
+        'imgInp4' => $_POST['imgInp4'],
+        'imgInp5' => $_POST['imgInp5'],
+        'imgInp6' => $_POST['imgInp6'],
+        'imgInp7' => $_POST['imgInp7'],
+        'imgInp8' => $_POST['imgInp8']
+    ];
+    $insert = submitNewImages($db, $imageInputs);
     if ($insert) {
-        // on redirige vers la page actuelle
-        header("Location: ?p=imageChanger"); 
+        header("Location: ./"); 
         exit();
     } else {
-        // sinon, on affiche un message d'erreur
         $messageError = "Erreur avec l'insertion";
     }
-
 }
+
 
 if(isset($_GET["p"])){
     switch($_GET["p"]){

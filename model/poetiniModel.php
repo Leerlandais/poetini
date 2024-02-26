@@ -47,3 +47,13 @@ function getImages(PDO $imageDB): array
     $query->closeCursor();
     return $result;
 }
+
+function submitNewImages(PDO $imageDB, array $imageInputs) {
+    $sql = "UPDATE `poetini_image` SET `image_one`=?, `image_two`=?, `image_three`=?, `image_four`=?, `image_five`=?, `image_six`=?, `image_seven`=?, `image_eight`=? WHERE id=1";
+    $query = $imageDB->prepare($sql);
+    $params = [
+        $imageInputs['imgInp1'], $imageInputs['imgInp2'], $imageInputs['imgInp3'], $imageInputs['imgInp4'], $imageInputs['imgInp5'], $imageInputs['imgInp6'], $imageInputs['imgInp7'], $imageInputs['imgInp8'],
+    ];
+    $didIt = $query->execute($params);
+    return $didIt;
+}

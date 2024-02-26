@@ -12,7 +12,7 @@
         foreach($placeImages as $oldImageURL);
         ?>
             <fieldset class="imgField">
-                <form action="" class="imgForm">
+                <form action="" class="imgForm" method="POST">
 
                     <div class="imgInput"><label for="" class="imgChgLabel">Image 1</label><input type="text" name="imgInp1" class="imgChgInput" placeholder="<?=$oldImageURL['image_one']?>"></div>
                     <div class="imgInput"><label for="" class="imgChgLabel">Image 2</label><input type="text" name="imgInp2" class="imgChgInput" placeholder="<?=$oldImageURL['image_two']?>"></div>
