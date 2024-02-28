@@ -41,19 +41,36 @@ function addMessages(PDO $db,
 
 function getImages(PDO $imageDB): array
 {
-    $sql = "SELECT * from poetini_image ORDER BY id ASC";
+    $sql = "SELECT * from poetini_image_text ORDER BY image_one ASC";
     $query = $imageDB->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     $query->closeCursor();
     return $result;
 }
 
-function submitNewImages(PDO $imageDB, array $imageInputs) {
-    $sql = "UPDATE `poetini_image` SET `image_one`=?, `image_two`=?, `image_three`=?, `image_four`=?, `image_five`=?, `image_six`=?, `image_seven`=?, `image_eight`=? WHERE id=1";
+function submitNewImages(PDO $imageDB, array $imageInputs) 
+{
+    $sql = "UPDATE `poetini_image_text` SET `image_one`=?, `image_two`=?, `image_three`=?, `image_four`=?, `image_five`=?, `image_six`=?, `image_seven`=?, `image_eight`=?";
     $query = $imageDB->prepare($sql);
     $params = [
         $imageInputs['imgInp1'], $imageInputs['imgInp2'], $imageInputs['imgInp3'], $imageInputs['imgInp4'], $imageInputs['imgInp5'], $imageInputs['imgInp6'], $imageInputs['imgInp7'], $imageInputs['imgInp8'],
     ];
     $didIt = $query->execute($params);
+    $query->closeCursor();    
+    return $didIt;
+}
+
+
+
+
+function submitNewText(PDO $textDB, array $textInputs) 
+{
+    $sql = "UPDATE `poetini_image_text` SET `text_one`=?, `text_two`=?, `text_three`=?, `text_four`=?, `text_five`=?, `text_six`=?, `text_seven`=?, `text_eight`=?";
+    $query = $textDB->prepare($sql);
+    $params = [
+        $textInputs['textInp1'], $textInputs['textInp2'], $textInputs['textInp3'], $textInputs['textInp4'], $textInputs['textInp5'], $textInputs['textInp6'], $textInputs['textInp7'], $textInputs['textInp8'],
+    ];
+    $didIt = $query->execute($params);
+    $query->closeCursor();
     return $didIt;
 }

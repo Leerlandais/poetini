@@ -35,13 +35,34 @@ if (isset($_POST['imgInp1'], $_POST['imgInp2'], $_POST['imgInp3'], $_POST['imgIn
     ];
     $insert = submitNewImages($db, $imageInputs);
     if ($insert) {
-        header("Location: ./"); 
+        header("Location: ?p=home"); 
         exit();
     } else {
         $messageError = "Erreur avec l'insertion";
     }
 }
 
+
+
+if (isset($_POST['textInp1'], $_POST['textInp2'], $_POST['textInp3'], $_POST['textInp4'], $_POST['textInp5'], $_POST['textInp6'], $_POST['textInp7'], $_POST['textInp8'])) { 
+    $textInputs = [
+        'textInp1' => $_POST['textInp1'],
+        'textInp2' => $_POST['textInp2'],
+        'textInp3' => $_POST['textInp3'],
+        'textInp4' => $_POST['textInp4'],
+        'textInp5' => $_POST['textInp5'],
+        'textInp6' => $_POST['textInp6'],
+        'textInp7' => $_POST['textInp7'],
+        'textInp8' => $_POST['textInp8']
+    ];
+    $insert = submitNewText($db, $textInputs);
+    if ($insert) {
+        header("Location: ?p=home"); 
+        exit();
+    } else {
+        $messageError = "Erreur avec l'insertion";
+    }
+}
 
 if(isset($_GET["p"])){
     switch($_GET["p"]){
