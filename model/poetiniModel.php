@@ -30,7 +30,18 @@ function addMessages(PDO $db,
         return false;
     }
 
-    $sql = "INSERT INTO `poetini` (`user_nom`, `user_prenom`, `user_email`, `user_phone`, `user_message`) VALUES ('$firstN', '$lastN', '$email', '$phone', '$texte')";
+    $sql = "INSERT INTO `poetini` (
+        `user_nom`, 
+        `user_prenom`, 
+        `user_email`, 
+        `user_phone`, 
+        `user_message`
+        ) VALUES (
+            '$firstN', 
+            '$lastN', 
+            '$email', 
+            '$phone', 
+            '$texte')";
     try {
     $db->exec($sql);
     return true;
@@ -41,7 +52,7 @@ function addMessages(PDO $db,
 
 function getImages(PDO $imageDB): array
 {
-    $sql = "SELECT * from poetini_image_text ORDER BY image_one ASC";
+    $sql = "SELECT * from poetini_home ORDER BY id ASC";
     $query = $imageDB->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     $query->closeCursor();
@@ -50,27 +61,98 @@ function getImages(PDO $imageDB): array
 
 function submitNewImages(PDO $imageDB, array $imageInputs) 
 {
-    $sql = "UPDATE `poetini_image_text` SET `image_one`=?, `image_two`=?, `image_three`=?, `image_four`=?, `image_five`=?, `image_six`=?, `image_seven`=?, `image_eight`=?";
+    $sql = "UPDATE `poetini_home` 
+            SET `image_src` = 
+                CASE 
+                    WHEN `id` = 1 THEN :imgInp1
+                    WHEN `id` = 2 THEN :imgInp2
+                    WHEN `id` = 3 THEN :imgInp3
+                    WHEN `id` = 4 THEN :imgInp4
+                    WHEN `id` = 5 THEN :imgInp5
+                    WHEN `id` = 6 THEN :imgInp6
+                    WHEN `id` = 7 THEN :imgInp7
+                    WHEN `id` = 8 THEN :imgInp8
+                    ELSE `image_src`
+                END";
+
     $query = $imageDB->prepare($sql);
-    $params = [
-        $imageInputs['imgInp1'], $imageInputs['imgInp2'], $imageInputs['imgInp3'], $imageInputs['imgInp4'], $imageInputs['imgInp5'], $imageInputs['imgInp6'], $imageInputs['imgInp7'], $imageInputs['imgInp8'],
-    ];
-    $didIt = $query->execute($params);
-    $query->closeCursor();    
+    $didIt = $query->execute([
+        ':imgInp1' => $imageInputs['imgInp1'],
+        ':imgInp2' => $imageInputs['imgInp2'],
+        ':imgInp3' => $imageInputs['imgInp3'],
+        ':imgInp4' => $imageInputs['imgInp4'],
+        ':imgInp5' => $imageInputs['imgInp5'],
+        ':imgInp6' => $imageInputs['imgInp6'],
+        ':imgInp7' => $imageInputs['imgInp7'],
+        ':imgInp8' => $imageInputs['imgInp8'],
+    ]);
+
+    $query->closeCursor();
+    return $didIt;
+}
+
+function submitNewTitle(PDO $titleDB, array $titleInputs) 
+{
+    $sql = "UPDATE `poetini_home` 
+            SET `image_title` = 
+                CASE 
+                    WHEN `id` = 1 THEN :titleInp1
+                    WHEN `id` = 2 THEN :titleInp2
+                    WHEN `id` = 3 THEN :titleInp3
+                    WHEN `id` = 4 THEN :titleInp4
+                    WHEN `id` = 5 THEN :titleInp5
+                    WHEN `id` = 6 THEN :titleInp6
+                    WHEN `id` = 7 THEN :titleInp7
+                    WHEN `id` = 8 THEN :titleInp8
+                    ELSE `image_title`
+                END";
+
+    $query = $titleDB->prepare($sql);
+    $didIt = $query->execute([
+        ':titleInp1' => $titleInputs['titleInp1'],
+        ':titleInp2' => $titleInputs['titleInp2'],
+        ':titleInp3' => $titleInputs['titleInp3'],
+        ':titleInp4' => $titleInputs['titleInp4'],
+        ':titleInp5' => $titleInputs['titleInp5'],
+        ':titleInp6' => $titleInputs['titleInp6'],
+        ':titleInp7' => $titleInputs['titleInp7'],
+        ':titleInp8' => $titleInputs['titleInp8'],
+    ]);
+
+    $query->closeCursor();
     return $didIt;
 }
 
 
 
-
 function submitNewText(PDO $textDB, array $textInputs) 
 {
-    $sql = "UPDATE `poetini_image_text` SET `text_one`=?, `text_two`=?, `text_three`=?, `text_four`=?, `text_five`=?, `text_six`=?, `text_seven`=?, `text_eight`=?";
+    $sql = "UPDATE `poetini_home` 
+            SET `image_text` = 
+                CASE 
+                    WHEN `id` = 1 THEN :textInp1
+                    WHEN `id` = 2 THEN :textInp2
+                    WHEN `id` = 3 THEN :textInp3
+                    WHEN `id` = 4 THEN :textInp4
+                    WHEN `id` = 5 THEN :textInp5
+                    WHEN `id` = 6 THEN :textInp6
+                    WHEN `id` = 7 THEN :textInp7
+                    WHEN `id` = 8 THEN :textInp8
+                    ELSE `image_text`
+                END";
+
     $query = $textDB->prepare($sql);
-    $params = [
-        $textInputs['textInp1'], $textInputs['textInp2'], $textInputs['textInp3'], $textInputs['textInp4'], $textInputs['textInp5'], $textInputs['textInp6'], $textInputs['textInp7'], $textInputs['textInp8'],
-    ];
-    $didIt = $query->execute($params);
+    $didIt = $query->execute([
+        ':textInp1' => $textInputs['textInp1'],
+        ':textInp2' => $textInputs['textInp2'],
+        ':textInp3' => $textInputs['textInp3'],
+        ':textInp4' => $textInputs['textInp4'],
+        ':textInp5' => $textInputs['textInp5'],
+        ':textInp6' => $textInputs['textInp6'],
+        ':textInp7' => $textInputs['textInp7'],
+        ':textInp8' => $textInputs['textInp8'],
+    ]);
+
     $query->closeCursor();
     return $didIt;
 }

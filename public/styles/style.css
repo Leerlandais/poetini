@@ -1,5 +1,6 @@
 body {
    background-image: url(../images/poe_background.jpg);
+   
 }
 
 .headerDiv {
@@ -148,58 +149,7 @@ h1 {
    box-shadow: lightslategray 5px 5px;
    
 }
-/*
-.artWindow1{
-   background-image: url(../images/waltbenjamin_nopad.jpg);
-}
-.artWindow2{
-   background-image: url(../images/vivmaier_nopad.jpg);
-}
-.artWindow3{
-   background-image: url(../images/sanlucbert_nopad.jpg);
-}
-.artWindow4{
-   background-image: url(../images/jadelindgaard_nopad.jpg);
-}
-.artWindow5{
-   background-image: url(../images/ireregnauld_nopad.jpg);
-}
-.artWindow6{
-   background-image: url(../images/fenetrexmas_nopad.jpg);
-}
-.artWindow7{
-   background-image: url(../images/emihache_nopad.jpg);
-}
-.artWindow8{
-   background-image: url(../images/dambrohon_nopad.jpg);
-}
-*/
-/*
-.artWindow1_text{
-   background-color: slategray;  /* REPLACE WITH TEXT */ /*
-}
-.artWindow2_text{
-   background-color: slategray;
-}
-.artWindow3_text{
-   background-color: slategray;
-}
-.artWindow4_text{
-   background-color: slategray;
-}
-.artWindow5_text{
-   background-color: slategray;
-}
-.artWindow6_text{
-   background-color: slategray;
-}
-.artWindow7_text{
-   background-color: slategray;
-}
-.artWindow8_text{
-   background-color: slategray;
-}
-*/
+
 .spinIt {
    transform: rotateY(180deg);
    background-image: none;
@@ -211,9 +161,10 @@ h1 {
    margin: 0 auto;
    border: 2px solid black;
    border-radius: 10px;
+   background-color: slategrey;
 }
 
-.imgForm, .textForm {
+.imgForm, .textForm, .titleForm {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -221,7 +172,7 @@ h1 {
    margin: 20px auto;
 }
 
-.imgInput, .textInput {
+.imgInput, .textInput, .titleInput {
    width: 100%;
    display: flex;
    flex-direction: row;
@@ -229,11 +180,12 @@ h1 {
    margin-bottom: 3px;
 }
 
-.imgChgLabel, .textChgLabel {
-   width: 60px;
+.imgChgLabel, .textChgLabel, .titleChgLabel {
+   width: 110px;
+   text-align: right;
 }
 
-.imgChgInput, .textChgInput {
+.imgChgInput, .textChgInput, .titleChgInput {
    width: 50%;
 }
 
@@ -241,7 +193,7 @@ h1 {
    display: none;
    position: fixed;
    z-index: 999;
-   top: 5%;
+   top: 10%;
    left: 20%;
    right: 0;
    bottom: 0;
@@ -266,20 +218,51 @@ h1 {
    background-size: contain;
    
 }
-
+.lightbox::before {
+   content:"X"; /* font awesome icons, etc. */
+   cursor: pointer;
+   font-size: 32px;
+   right:21%;
+   top:12%;
+   font-weight: 600;
+   position: fixed;
+   display: block;
+   text-align:right;
+   color:red;
+ }
 .backText {
-   padding: 3% 25%;
-   margin-top: 10vh;
-   font-size: 24px;
+   padding: 3% 20%;
+   margin-top: 2vh;
+   font-size: 28px;
    color: white;
    
 }
 
+.textHeader {
+   margin: 6vh auto 0;
+   width: 50%;
+   text-align: center;
+   color: aliceblue;
+   text-decoration: underline;
+   font-style: italic;
+   font-size: 36px;
+
+}
+
+#screenwidth {
+   text-align: center;
+   font-size: 16px;
+   color: white;
+}
 
 
 @media screen and (max-width: 800px) {
 
-
+   #screenwidth {
+      text-align: center;
+      font-size: 16px;
+      color: white;
+   }
    nav ul {
       display: flex;
       flex-flow: column nowrap;
@@ -356,5 +339,132 @@ h1 {
       
    }
 
+   .lightbox {                                
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 1%;
+      left: 20%;
+      right: 0;
+      bottom: 0;
+      padding: 1em;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid white;
+      border-radius: 20px;
+      width: 60%;
+      height: 95%;
+   }
+   
+   .lightbox:target {           
+      display: block;
+   }
+   
+   .lightbox span {                       
+      display: block;
+      width: 60%;
+      height: 90%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      
+   }
 
+   .lightbox::before {
+      content:"X"; /* font awesome icons, etc. */
+      cursor: pointer;
+      font-size: 18px;
+      right:21%;
+      top:3%;
+      font-weight: 600;
+      position: fixed;
+      display: block;
+      text-align:right;
+      color:red;
+    }
+
+   .backText {
+      padding: 0 5%;
+      margin-top: 1vh;
+      font-size: 19px;
+      color: white;
+   }
+
+   .textHeader {
+      margin: 4vh auto 0;
+      width: 37%;
+      color: aliceblue;
+      text-decoration: underline;
+      font-style: italic;
+
+   }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+
+   nav ul {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      max-width: 100%;
+      margin: 0 auto 5vh;
+      text-align: center;
+      font-size: 24px;
+   }
+
+   
+   ul a {
+      color: black;
+      text-decoration: none;
+   }
+
+   .backText {
+      padding: 0 5%;
+      margin-top: 1vh;
+      font-size: 24px;
+      color: white;
+   }
+
+   .textHeader {
+      margin: 4vh auto 0;
+      width: 37%;
+      color: aliceblue;
+      text-decoration: underline;
+      font-style: italic;
+
+   }
+}
+
+   @media screen and (min-width: 1200px) and (max-width: 1800px) {
+
+      nav ul {
+         display: flex;
+         flex-flow: row nowrap;
+         justify-content: space-around;
+         max-width: 100%;
+         margin: 0 auto 5vh;
+         text-align: center;
+         font-size: 24px;
+      }
+   
+      
+      ul a {
+         color: black;
+         text-decoration: none;
+      }
+   
+      .backText {
+         padding: 0 5%;
+         margin-top: 1vh;
+         font-size: 28px;
+         color: white;
+      }
+   
+      .textHeader {
+         margin: 4vh auto 0;
+         width: 37%;
+         color: aliceblue;
+         text-decoration: underline;
+         font-style: italic;
+   
+      }
 }

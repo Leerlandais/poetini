@@ -64,6 +64,26 @@ if (isset($_POST['textInp1'], $_POST['textInp2'], $_POST['textInp3'], $_POST['te
     }
 }
 
+if (isset($_POST['titleInp1'], $_POST['titleInp2'], $_POST['titleInp3'], $_POST['titleInp4'], $_POST['titleInp5'], $_POST['titleInp6'], $_POST['titleInp7'], $_POST['titleInp8'])) { 
+    $titleInputs = [
+        'titleInp1' => $_POST['titleInp1'],
+        'titleInp2' => $_POST['titleInp2'],
+        'titleInp3' => $_POST['titleInp3'],
+        'titleInp4' => $_POST['titleInp4'],
+        'titleInp5' => $_POST['titleInp5'],
+        'titleInp6' => $_POST['titleInp6'],
+        'titleInp7' => $_POST['titleInp7'],
+        'titleInp8' => $_POST['titleInp8']
+    ];
+    $insert = submitNewTitle($db, $titleInputs);
+    if ($insert) {
+        header("Location: ?p=home"); 
+        exit();
+    } else {
+        $messageError = "Erreur avec l'insertion";
+    }
+}
+
 if(isset($_GET["p"])){
     switch($_GET["p"]){
         case 'home':
