@@ -11,6 +11,7 @@
     <div class="articleHolder">
    <?php
         include("../view/inc/header.php");
+        
         $i = 1;
         foreach($placeImages as $placeMe) :
     //    var_dump($placeImages);
